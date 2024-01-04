@@ -41,12 +41,13 @@ let geometry = null
 let material = null
 let points = null
 
-const spinAngleFunction1 = (radius, spin) => Math.sin(radius * spin);
-const spinAngleFunction2 = (radius, spin) => Math.cos(radius * spin);
-const spinAngleFunction3 = (radius, spin) => Math.cos(Math.sin(radius * spin) * 3);
-const spinAngleFunction4 = (radius, spin) => Math.sin(Math.cos(radius * spin) * 3);
-const spinAngleFunction5 = (radius, spin) => Math.cos(Math.sin(radius * spin) * 8);
-const spinAngleFunction6 = (radius, spin) => Math.sin(Math.cos(radius * spin) * 5);
+const spinAngleFunction1 = (radius, spin) => radius * spin;
+const spinAngleFunction2 = (radius, spin) => Math.sin(radius * spin);
+const spinAngleFunction3 = (radius, spin) => Math.cos(radius * spin);
+const spinAngleFunction4 = (radius, spin) => Math.cos(Math.sin(radius * spin) * 3);
+const spinAngleFunction5 = (radius, spin) => Math.sin(Math.cos(radius * spin) * 3);
+const spinAngleFunction6 = (radius, spin) => Math.cos(Math.sin(radius * spin) * 8);
+const spinAngleFunction7 = (radius, spin) => Math.sin(Math.cos(radius * spin) * 5);
 
 const generateGalaxy = (spinAngleFunction) => {
     /**
@@ -126,9 +127,9 @@ const generateGalaxy = (spinAngleFunction) => {
     scene.add(points);
 };
 
-generateGalaxy(spinAngleFunction1)
+generateGalaxy(spinAngleFunction2)
 
-let lastUsedSpinAngleFunction = spinAngleFunction1
+let lastUsedSpinAngleFunction = spinAngleFunction2
 
 const galaxies = {
     variation1: () => {
@@ -154,6 +155,10 @@ const galaxies = {
     variation6: () => {
         generateGalaxy(spinAngleFunction6)
         lastUsedSpinAngleFunction = spinAngleFunction6
+    },
+    variation7: () => {
+        generateGalaxy(spinAngleFunction7)
+        lastUsedSpinAngleFunction = spinAngleFunction7
     }
 }
 
@@ -172,6 +177,7 @@ gui.add(galaxies, 'variation3').name('Third variation')
 gui.add(galaxies, 'variation4').name('Fourth variation')
 gui.add(galaxies, 'variation5').name('Fifth variation')
 gui.add(galaxies, 'variation6').name('Sixth variation')
+gui.add(galaxies, 'variation7').name('Seventh variation')
 
 /**
  * Sizes
