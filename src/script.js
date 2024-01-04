@@ -15,6 +15,10 @@ const canvas = document.querySelector('canvas.webgl')
 // Scene
 const scene = new THREE.Scene()
 
+const textureLoader = new THREE.TextureLoader()
+
+const particleTexture = textureLoader.load('/textures/9.png')
+
 const rgbeLoader = new RGBELoader();
 rgbeLoader.load('./textures/environmentMaps/2k.hdr', (environmentMap) => {
     environmentMap.mapping = THREE.EquirectangularReflectionMapping;
@@ -111,6 +115,8 @@ const generateGalaxy = (spinAngleFunction) => {
      */
 
     material = new THREE.PointsMaterial({
+        alphaMap: particleTexture,
+        transparent: true,
         size: parameters.size,
         sizeAttenuation: true,
         depthWrite: false,
