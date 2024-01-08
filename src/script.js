@@ -219,8 +219,8 @@ camera.position.z = 6
 scene.add(camera)
 
 if(window.matchMedia("(max-width: 767px)").matches) {
-    camera.position.z = 13
-    camera.position.y = 10
+    camera.position.z = 16
+    camera.position.y = 13
 }
 
 // Controls
