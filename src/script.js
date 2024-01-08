@@ -218,6 +218,11 @@ camera.position.y = 5
 camera.position.z = 6
 scene.add(camera)
 
+if(window.matchMedia("(max-width: 767px)").matches) {
+    camera.position.z = 13
+    camera.position.y = 10
+}
+
 // Controls
 const controls = new OrbitControls(camera, canvas)
 controls.enableDamping = true
