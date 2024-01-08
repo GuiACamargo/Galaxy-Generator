@@ -219,7 +219,7 @@ camera.position.z = 6
 scene.add(camera)
 
 if(window.matchMedia("(max-width: 767px)").matches) {
-    camera.position.z = 16
+    camera.position.z = 20
     camera.position.y = 13
 }
 
